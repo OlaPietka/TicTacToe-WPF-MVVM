@@ -1,0 +1,91 @@
+﻿<Window x:Class="TicTacToe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicTacToe"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="540" Width="500">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BorderThickness" Value="0.5"/>
+                <Setter Property="FontSize" Value="70"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+
+    <Grid x:Name="Container">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Content="{Binding ScoreX}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"/>
+        <Button Grid.Column="1" Grid.Row="0" Command="{Binding NewGameCommand}" Content="New Game" FontSize="14" BorderThickness="0.0" Background="White"/>
+        <Label Grid.Column="2" Grid.Row="0" Content="{Binding ScoreO}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Green"/>
+
+        <Button Grid.Column="0" Grid.Row="1" Command="{Binding ClickCommand}" Content="{Binding Content[0]}" IsEnabled="{Binding IsEnabled[0]}" Foreground="{Binding TextColor[0]}" Background="{Binding BackgroundColor[0]}">
+            <Button.CommandParameter>
+                <sys:Int32>0</sys:Int32>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="1" Command="{Binding ClickCommand}" Content="{Binding Content[1]}" IsEnabled="{Binding IsEnabled[1]}" Foreground="{Binding TextColor[1]}" Background="{Binding BackgroundColor[1]}">
+            <Button.CommandParameter>
+                <sys:Int32>1</sys:Int32>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="1" Command="{Binding ClickCommand}" Content="{Binding Content[2]}" IsEnabled="{Binding IsEnabled[2]}" Foreground="{Binding TextColor[2]}" Background="{Binding BackgroundColor[2]}">
+            <Button.CommandParameter>
+                <sys:Int32>2</sys:Int32>
+            </Button.CommandParameter>
+        </Button>
+
+        <Button Grid.Column="0" Grid.Row="2" Command="{Binding ClickCommand}" Content="{Binding Content[3]}" IsEnabled="{Binding IsEnabled[3]}" Foreground="{Binding TextColor[3]}" Background="{Binding BackgroundColor[3]}">
+            <Button.CommandParameter>
+                <sys:Int32>3</sys:Int32>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="2" Command="{Binding ClickCommand}" Content="{Binding Content[4]}" IsEnabled="{Binding IsEnabled[4]}" Foreground="{Binding TextColor[4]}" Background="{Binding BackgroundColor[4]}">
+            <Button.CommandParameter>
+                <sys:Int32>4</sys:Int32>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="2" Command="{Binding ClickCommand}" Content="{Binding Content[5]}" IsEnabled="{Binding IsEnabled[5]}" Foreground="{Binding TextColor[5]}" Background="{Binding BackgroundColor[5]}">
+            <Button.CommandParameter>
+                <sys:Int32>5</sys:Int32>
+            </Button.CommandParameter>
+        </Button>
+
+        <Button Grid.Column="0" Grid.Row="3" Command="{Binding ClickCommand}" Content="{Binding Content[6]}" IsEnabled="{Binding IsEnabled[6]}" Foreground="{Binding TextColor[6]}" Background="{Binding BackgroundColor[6]}">
+            <Button.CommandParameter>
+                <sys:Int32>6</sys:Int32>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="3" Command="{Binding ClickCommand}" Content="{Binding Content[7]}" IsEnabled="{Binding IsEnabled[7]}" Foreground="{Binding TextColor[7]}" Background="{Binding BackgroundColor[7]}">
+            <Button.CommandParameter>
+                <sys:Int32>7</sys:Int32>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="3" Command="{Binding ClickCommand}" Content="{Binding Content[8]}" IsEnabled="{Binding IsEnabled[8]}" Foreground="{Binding TextColor[8]}" Background="{Binding BackgroundColor[8]}">
+            <Button.CommandParameter>
+                <sys:Int32>8</sys:Int32>
+            </Button.CommandParameter>
+        </Button>
+    </Grid>
+</Window>
